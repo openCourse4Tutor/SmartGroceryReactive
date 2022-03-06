@@ -28,7 +28,7 @@
             <td>{{ product.productDescription }}</td>
             <td>{{ product.createdDate }}</td>
             <td>{{ product.quantity }}</td>
-            <td>{{ product.unitPrice | currency }}</td>
+            <td>{{product.unitPrice |currency:'EUR'}}</td>
             <td>
               <p *ngIf="product.quantity <= 50">Insufficient Inventory</p>
               <p *ngIf="product.quantity > 50">Sufficient inventory</p>
