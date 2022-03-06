@@ -21,9 +21,7 @@
             <td>{{ firstProductItemName }}</td>
             <td>White Basmathi Rice imported from pakistan</td>
             <td>2022.01.20</td>
-            <td [ngClass]="isLowInventory ? 'bg-danger' : ''">
-              {{ getStorage() }}
-            </td>
+            <td [ngStyle]="isLowInventory ? {'background-color':'red'}: {}">{{getStorage()}}</td>
             <td>{{ getPriceofRice() }}</td>
           </tr>
           <tr>
