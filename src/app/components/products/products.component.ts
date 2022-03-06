@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit {
     },
   ];
 
-  public selectProduct(selectedRow: any){
+  public selectProduct(selectedRow: number){
     this.rowIndex = selectedRow;
     }
 }
