@@ -11,5 +11,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  public getPriceofRice(){
+    return 350;
+  }
 
 }
