@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
   public rowIndex!: number;
-  
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,7 +18,8 @@ export class ProductsComponent implements OnInit {
       createdDate: '2020.01.29',
       quantity: 100,
       unitPrice: '400',
-      productDescription: 'White Basmathi Rice imported from pakistan',
+      productDescription:
+        'White Basmathi Rice imported from pakistan. High quality rice with extra fragnance. Organically grown.',
     },
     {
       productId: '002',
@@ -46,7 +47,7 @@ export class ProductsComponent implements OnInit {
     },
   ];
 
-  public selectProduct(selectedRow: number){
+  public selectProduct(selectedRow: number) {
     this.rowIndex = selectedRow;
-    }
+  }
 }
