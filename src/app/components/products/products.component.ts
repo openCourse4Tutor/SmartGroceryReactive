@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
+  public rowIndex!: number;
+  
   constructor() {}
 
   ngOnInit(): void {}
@@ -43,4 +45,8 @@ export class ProductsComponent implements OnInit {
       productDescription: 'Imported mysoor dhal from India',
     },
   ];
+
+  public selectProduct(selectedRow: any){
+    this.rowIndex = selectedRow;
+    }
 }

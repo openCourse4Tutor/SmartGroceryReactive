@@ -17,8 +17,8 @@
           </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products">
-                <th scope="row">{{product.productId}}</th>
+            <tr *ngFor="let product of products let i = index" (click)="selectProduct(i)" [ngClass]="rowIndex == i ? 'active' : ''">
+                <td>{{product.productId}}</td>
                 <td>{{product.productName}}</td>
                 <td>{{product.productDescription}}</td>
                 <td>{{product.createdDate}}</td>
