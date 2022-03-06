@@ -27,7 +27,7 @@
             <th scope="col">Product Name</th>
             <th scope="col">Product Description</th>
             <th scope="col">Created Date</th>
-            <th scope="col">Quantity in Kgs</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Unit Price</th>
             <th scope="col">Availability</th>
             <th scope="col">Product Actions</th>
@@ -39,9 +39,9 @@
             (click)="selectProduct(i)"
             [ngClass]="rowIndex == i ? 'active' : ''"
           >
-            <td>{{ product.productId }}</td>
+            <td>{{ product.id }}</td>
             <td>{{ product.productName }}</td>
-            <td>{{ product.productDescription | contentLimitter }}</td>
+            <td>{{ product.description | contentLimitter }}</td>
             <td>{{ product.createdDate }}</td>
             <td>{{ product.quantity }}</td>
             <td>{{ product.unitPrice | currency: "Rs." }}</td>
