@@ -13,6 +13,7 @@
             <th scope="col">Created Date</th>
             <th scope="col">Quantity in Kgs</th>
             <th scope="col">Unit Price</th>
+            <th scope="col">Availability</th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +24,10 @@
                 <td>{{product.createdDate}}</td>
                 <td>{{product.quantity}}</td>
                 <td>{{product.unitPrice}}</td>
+                <td >  
+                    <p *ngIf="product.quantity <= 50">Insufficient Inventory </p>
+                    <p *ngIf="product.quantity > 50">Sufficient inventory </p>
+                 </td>
             </tr>
         </tbody>
       </table>
