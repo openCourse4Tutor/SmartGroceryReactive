@@ -26,5 +26,9 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit(): void {}
 
+   get f() {
+    return this.productFrom.controls;
+  }
+
   onSubmit() {}
 }
