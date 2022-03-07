@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from 'src/app/Models/product.model';
 import { ProductService } from 'src/app/Services/product.service';
+import { ViewProductDetailsComponent } from '../view-product-details/view-product-details.component';
 
 @Component({
   selector: 'app-products',
@@ -13,13 +14,19 @@ export class ProductsComponent implements OnInit {
   isLoading :boolean = false;
   showEditProduct!: boolean;
   selectedProductId! :number;
-
+  message! :string;
+  public products: Product[] = [];
+  @ViewChild(ViewProductDetailsComponent) viewComponent!: ViewProductDetailsComponent;
   constructor(private productService : ProductService) {}
 
   ngOnInit(): void {
     this.getProducts();
+    //this.message = this.viewComponent.childMessage;
   }
-  public products: Product[] = [];
+  
+  ngAfterViewInit(){
+   this.message = this.viewComponent.childMessage
+  }
 
   public selectProduct(selectedRow:any, selectedId :number) {
     this.rowIndex = selectedRow;
@@ -58,3 +65,7 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 }
+function ViewProductComponent(ViewProductComponent: any) {
+  throw new Error('Function not implemented.');
+}
+
