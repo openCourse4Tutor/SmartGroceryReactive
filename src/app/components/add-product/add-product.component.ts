@@ -23,6 +23,7 @@ export class AddProductComponent implements OnInit {
 
   isDataUploading = false;
   @Output() cancelAddView :EventEmitter<void> = new EventEmitter<void>();
+  @Output() productAddEvent :EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder,
     private productService :ProductService) {}
@@ -38,7 +39,7 @@ export class AddProductComponent implements OnInit {
     values.createdDate = new Date().toDateString();
     this.isDataUploading = true;
     this.productService.addProduct(values as Product).subscribe((res) => {
-      debugger;
+      this.productAddEvent.emit();
       this.isDataUploading = false;
       this.productFrom.reset();
     });
