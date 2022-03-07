@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-product',
@@ -7,7 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EditProductComponent implements OnInit {
   @Input() productId!: number;
+  @Output() cancelEditView: EventEmitter<void> = new EventEmitter<void>();
   constructor() {}
 
   ngOnInit(): void {}
+
+  cancel() {
+    this.cancelEditView.emit();
+  }
 }
