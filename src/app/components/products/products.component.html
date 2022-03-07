@@ -15,22 +15,7 @@
             aria-hidden="true"
           ></i>
         </h1>
-        <button
-          *ngIf="!showAddProduct"
-          type="button"
-          class="btn btn-outline-primary"
-          (click)="showAddProducts()"
-        >
-          Add Product
-        </button>
-        <button
-          *ngIf="showAddProduct"
-          type="button"
-          class="btn btn-outline-primary"
-          (click)="hideAddProducts()"
-        >
-          Close Products
-        </button>
+        <button type="button" class="btn btn-outline-primary" (click)="showAddProducts()">Add Product</button>
       </div>
       <table class="table">
         <thead class="thead-light t-head">
@@ -83,7 +68,7 @@
       </table>
     </section>
     <section class="col-md-5" *ngIf="showAddProduct || showEditProduct">
-      <app-add-product *ngIf="showAddProduct"></app-add-product>
+      <app-add-product *ngIf="showAddProduct" (cancelAddView) = "hideAddProducts()"></app-add-product>
       <app-edit-product *ngIf="showEditProduct" [productId] = "selectedProductId" (cancelEditView) = closeEditView()></app-edit-product>
     </section>
   </div>

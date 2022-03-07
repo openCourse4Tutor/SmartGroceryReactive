@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Product } from 'src/app/Models/product.model';
 import { ProductService } from 'src/app/Services/product.service';
@@ -22,6 +22,7 @@ export class AddProductComponent implements OnInit {
   });
 
   isDataUploading = false;
+  @Output() cancelAddView :EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder,
     private productService :ProductService) {}
@@ -42,4 +43,8 @@ export class AddProductComponent implements OnInit {
       this.productFrom.reset();
     });
   }
+
+  cancel(){
+    this.cancelAddView.emit();
+ }
 }
