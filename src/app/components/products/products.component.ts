@@ -11,6 +11,7 @@ export class ProductsComponent implements OnInit {
   public rowIndex!: number;
   showAddProduct!: boolean;
   isLoading :boolean = false;
+  showEditProduct!: boolean;
 
   constructor(private productService : ProductService) {}
 
@@ -41,5 +42,9 @@ export class ProductsComponent implements OnInit {
       this.products = res.data;
       this.isLoading = false;
     });
+  }
+
+  OpenEditProductView(){
+    this.showEditProduct = true;
   }
 }
