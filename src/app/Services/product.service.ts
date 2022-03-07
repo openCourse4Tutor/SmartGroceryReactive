@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AddProductResponse } from '../Models/add -product-response.model';
+import { ProductResponse } from '../Models/product-response.model';
 import { Product } from '../Models/product.model';
 
 @Injectable({
@@ -22,5 +23,9 @@ export class ProductService {
       product,
       this.httpOptions
     );
+  }
+
+  getProducts(): Observable<ProductResponse> {
+    return this.http.get<ProductResponse>(this.baseUrl + 'api/products');
   }
 }

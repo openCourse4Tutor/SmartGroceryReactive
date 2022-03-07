@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/product.model';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -9,10 +10,13 @@ import { Product } from 'src/app/Models/product.model';
 export class ProductsComponent implements OnInit {
   public rowIndex!: number;
   showAddProduct!: boolean;
+  isLoading :boolean = false;
 
-  constructor() {}
+  constructor(private productService : ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getProducts();
+  }
   public products: Product[] = [];
 
   public selectProduct(selectedRow: number) {
@@ -25,5 +29,17 @@ export class ProductsComponent implements OnInit {
 
   hideAddProducts() {
     this.showAddProduct = false;
+  }
+
+  refresh() {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.isLoading = true;
+    this.productService.getProducts().subscribe((res) => {
+      this.products = res.data;
+      this.isLoading = false;
+    });
   }
 }
