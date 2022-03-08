@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
   showAddProduct!: boolean;
   isLoading :boolean = false;
   showEditProduct!: boolean;
-  selectedProductId! :number;
+  selectedProduct! :Product;
   message! :string;
   public products: Product[] = [];
   constructor(private productService : ProductService) {}
@@ -22,9 +22,9 @@ export class ProductsComponent implements OnInit {
     this.getProducts();
   }
 
-  public selectProduct(selectedRow:any, selectedId :number) {
+  public selectProduct(selectedRow:any, product :Product) {
     this.rowIndex = selectedRow;
-    this.selectedProductId =selectedId;
+    this.selectedProduct =product;
   }
 
   showAddProducts() {
