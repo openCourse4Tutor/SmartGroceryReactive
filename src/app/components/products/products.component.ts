@@ -28,6 +28,9 @@ export class ProductsComponent implements OnInit {
   }
 
   showAddProducts() {
+    if(this.showEditProduct){
+      this.showEditProduct =false;
+    }
     this.showAddProduct = true;
   }
 
@@ -48,6 +51,9 @@ export class ProductsComponent implements OnInit {
   }
 
   OpenEditProductView(){
+    if(this.showAddProduct){
+      this.showAddProduct = false;
+    }
     this.showEditProduct = true;
   }
 
