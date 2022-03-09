@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/Services/product.service';
 export class EditProductComponent implements OnInit {
   @Input() product!: Product;
   isDataUploading = false;
+  @Output() editProductEvent : EventEmitter<void> = new EventEmitter<void>();
   @Output() cancelEditView: EventEmitter<void> = new EventEmitter<void>();
   constructor(private productService : ProductService) {}
 
@@ -21,8 +22,10 @@ export class EditProductComponent implements OnInit {
 
   onSubmit() {
     this.isDataUploading = true;
-    this.productService.updateProduct(this.product).subscribe(() => {
+    this.productService.updateProduct(this.product).subscribe((res) => {
       this.isDataUploading = false;
+      this.editProductEvent.emit();
+      this.cancelEditView.emit();
     });
   }
 }
