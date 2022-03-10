@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SmartGrocery": {
+    "Smart-Grocery": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -28,9 +28,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/font-awesome/css/font-awesome.css"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -69,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SmartGrocery:build:production"
+              "browserTarget": "Smart-Grocery:build:production"
             },
             "development": {
-              "browserTarget": "SmartGrocery:build:development"
+              "browserTarget": "Smart-Grocery:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SmartGrocery:build"
+            "browserTarget": "Smart-Grocery:build"
           }
         },
         "test": {
@@ -103,5 +106,5 @@
       }
     }
   },
-  "defaultProject": "SmartGrocery"
+  "defaultProject": "Smart-Grocery"
 }
